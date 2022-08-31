@@ -12,9 +12,6 @@ public class MathDay implements Initialization{
         String[] weekDayArr = getArrayWeekDay();
         String[] holidayDayArr = getArrayHolidayDay();
 
-//        isWeekDay(weekDayArr);
-//        isHolidayDay(holidayDayArr);
-
         if(isWeekDay(weekDayArr)){
             System.out.println("You should work");
         }else if(isHolidayDay(holidayDayArr)){
@@ -30,41 +27,31 @@ public class MathDay implements Initialization{
     }
 
     public boolean isWeekDay(String[] arr){
-        boolean result = false;
+        String kindOfDay = WEEKDAY;
 
-          for (int i = 0; i < arr.length; i++) {
-                result = true;
-
-              if (arr[i].equals(expression)) {
-                  System.out.println(expression + " is a " + WEEKDAY);
-                  break;
-              } else if (arr[i].toLowerCase().equals(expression)) {
-                  System.out.println(expression + " is a " + WEEKDAY);
-                  break;
-              } else if (arr[i].toUpperCase().equals(expression)) {
-                  System.out.println(expression + " is a " + WEEKDAY);
-                  break;
-              } else {
-                  result = false;
-              }
-          }
-          return result;
+        return walkThroughArray(arr, kindOfDay);
     }
 
     public boolean isHolidayDay(String[] arr){
+        String kindOfDay = HOLIDAY;
+
+        return walkThroughArray(arr, kindOfDay);
+    }
+
+    public boolean walkThroughArray(String[] arr, String kindOfDay){
         boolean result = false;
 
         for (int i = 0; i < arr.length; i++) {
-                result = true;
+            result = true;
 
             if (arr[i].equals(expression)) {
-                System.out.println(expression + " is a " + HOLIDAY);
+                System.out.println(expression + " is a " + kindOfDay);
                 break;
             } else if (arr[i].toLowerCase().equals(expression)) {
-                System.out.println(expression + " is a " + HOLIDAY);
+                System.out.println(expression + " is a " + kindOfDay);
                 break;
             } else if (arr[i].toUpperCase().equals(expression)) {
-                System.out.println(expression + " is a " + HOLIDAY);
+                System.out.println(expression + " is a " + kindOfDay);
                 break;
             } else {
                 result = false;
