@@ -1,6 +1,6 @@
 package OOP;
 
-public class MathDay implements Initialization{
+public class MathDay extends Capitalize implements Initialization{
     private final String WEEKDAY = "week day";
     private final String HOLIDAY = "holiday";
     private String expression;
@@ -25,6 +25,10 @@ public class MathDay implements Initialization{
     public String initialisation(){
         return Initialization.super.initialisation();
     }
+    @Override
+    public String capitalize(String str){
+        return super.capitalize(expression);
+    }
 
     public boolean isWeekDay(String[] arr){
         String kindOfDay = WEEKDAY;
@@ -45,13 +49,13 @@ public class MathDay implements Initialization{
             result = true;
 
             if (arr[i].equals(expression)) {
-                System.out.println(expression + " is a " + kindOfDay);
+                System.out.println(capitalize(expression) + " is a " +kindOfDay);
                 break;
             } else if (arr[i].toLowerCase().equals(expression)) {
-                System.out.println(expression + " is a " + kindOfDay);
+                System.out.println(capitalize(expression) + " is a " +kindOfDay);
                 break;
             } else if (arr[i].toUpperCase().equals(expression)) {
-                System.out.println(expression + " is a " + kindOfDay);
+                System.out.println(capitalize(expression) + " is a " +kindOfDay);
                 break;
             } else {
                 result = false;
